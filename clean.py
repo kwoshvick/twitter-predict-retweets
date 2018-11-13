@@ -8,7 +8,7 @@ def csvWriter(list):
         writer = csv.writer(csvfile)
         writer.writerow(list)
 
-myJsonString = open('data/practise.json')
+myJsonString = open('data/train.json')
 
 headers = ['created_at','location','followers_count','friends_count',
            'listed_count','favourites_count','sentiment_class',
