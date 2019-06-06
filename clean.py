@@ -2,6 +2,8 @@ import csv
 import json
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
+import multiprocessing
+multiprocessing.set_start_method('forkserver')
 
 def csvWriter(list):
     with open("data/sorted_csv.csv", 'a') as csvfile:
@@ -16,7 +18,7 @@ headers = ['created_at','location','followers_count','friends_count',
 
 jsonObjects = json.load(myJsonString)
 
-with open("data/sorted_csv.csv", "w") as outfile:
+with open("data/nb_csv.csv", "w") as outfile:
     writer = csv.writer(outfile)
     writer.writerow(headers)
     outfile.close()
